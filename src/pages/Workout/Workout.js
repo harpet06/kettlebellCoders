@@ -22,4 +22,4 @@ class Workout extends Component {
   }
 }
 
-export default Workout
+export default Workout;
