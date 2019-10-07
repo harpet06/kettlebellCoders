@@ -12,7 +12,8 @@ class Workout extends Component {
       workouts: workoutsData,
       workoutType: "kettlebell",
       workoutDifficulty: "beginner",
-      workoutNumber: 1
+      workoutNumber: 1,
+      workoutGenerated: false
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -28,9 +29,9 @@ class Workout extends Component {
   }
 
   handleSubmit(event) {
-    alert(
-      `the values we have are workout type: ${this.state.workoutType} and workout difficulty: ${this.state.workoutDifficulty} and workout no: ${this.state.workoutNumber}`
-    );
+    this.setState({
+      workoutGenerated: true
+    });
     event.preventDefault();
   }
 
@@ -48,8 +49,15 @@ class Workout extends Component {
     return (
       <div>
         <h1> Workout page</h1>
-        <WorkoutForm onSubmit={this.handleSubmit} handleChange={this.handleChange} data={this.state} />
-        <WorkoutCardCollection workoutCards={workoutCards} />
+        {!this.state.workoutGenerated ? (
+          <WorkoutForm
+            onSubmit={this.handleSubmit}
+            handleChange={this.handleChange}
+            data={this.state}
+          />
+        ) : (
+          <WorkoutCardCollection workoutCards={workoutCards} />
+        )}
       </div>
     );
   }
