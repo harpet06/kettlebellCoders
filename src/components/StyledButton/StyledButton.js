@@ -1,8 +1,12 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 
-function StyledButton() {
-  return <Button variant="primary"/>;
+function StyledButton(props) {
+  return (
+    <Button variant="primary" href={props.href}>
+      {props.buttonText}
+    </Button>
+  );
 }
 
-export default Button;
+export default StyledButton;

@@ -2,6 +2,7 @@ import React from "react";
 import { Component } from "react";
 import WorkoutCardCollection from "../../components/WorkoutCardCollection/WorkoutCardCollection";
 import WorkoutCard from "../../components/WorkoutCard/WorkoutCard";
+import WorkoutForm from "../../components/WorkoutForm/WorkoutForm";
 import workoutsData from "../../services/workouts";
 
 class Workout extends Component {
@@ -19,7 +20,7 @@ class Workout extends Component {
   render() {
     const workoutCards = this.state.workouts.map(exercise => (
       <WorkoutCard
-        key = {exercise.id}
+        key={exercise.id}
         cardTitle={exercise.cardTitle}
         cardWhatDescription={exercise.cardWhatDescription}
         cardDoDescription={exercise.cardDoDescription}
@@ -30,6 +31,7 @@ class Workout extends Component {
     return (
       <div>
         <h1> Workout page</h1>
+        <WorkoutForm />
         <WorkoutCardCollection workoutCards={workoutCards} />
       </div>
     );
