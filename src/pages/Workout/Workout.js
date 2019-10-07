@@ -9,12 +9,29 @@ class Workout extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      workouts: workoutsData
+      workouts: workoutsData,
+      workoutType: "kettlebell",
+      workoutDifficulty: "beginner",
+      workoutNumber: 1
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
     console.log("workout page");
+  }
+
+  handleChange(event) {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  }
+
+  handleSubmit(event) {
+    alert(
+      `the values we have are workout type: ${this.state.workoutType} and workout difficulty: ${this.state.workoutDifficulty} and workout no: ${this.state.workoutNumber}`
+    );
+    event.preventDefault();
   }
 
   render() {
@@ -31,7 +48,7 @@ class Workout extends Component {
     return (
       <div>
         <h1> Workout page</h1>
-        <WorkoutForm />
+        <WorkoutForm onSubmit={this.handleSubmit} handleChange={this.handleChange} data={this.state} />
         <WorkoutCardCollection workoutCards={workoutCards} />
       </div>
     );
