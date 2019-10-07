@@ -19,6 +19,7 @@ class Workout extends Component {
   render() {
     const workoutCards = this.state.workouts.map(exercise => (
       <WorkoutCard
+        key = {exercise.id}
         cardTitle={exercise.cardTitle}
         cardWhatDescription={exercise.cardWhatDescription}
         cardDoDescription={exercise.cardDoDescription}
