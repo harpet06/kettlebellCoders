@@ -10,6 +10,6 @@ it("renders without crashing", () => {
 });
 
 it("contains company name", () => {
-  const { getByText } = render(<Header />);
+  const { getByText } = render(<Header headerTitle="kettlebellCoders"/>);
   expect(getByText("kettlebellCoders")).toBeInTheDocument();
 });

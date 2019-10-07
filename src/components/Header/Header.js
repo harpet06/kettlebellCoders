@@ -3,7 +3,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import logo from "./kettlebell.svg";
 
-function Header() {
+function Header(props) {
   return (
     <header>
       <Navbar bg="secondary" variant="dark" expand="lg">
@@ -13,8 +13,9 @@ function Header() {
             width="30"
             height="30"
             className="d-inline-block align-top"
+            alt=""
           />
-          kettlebellCoders
+          {props.headerTitle}
         </Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse>
