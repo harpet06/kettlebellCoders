@@ -8,3 +8,16 @@ it("renders without crashing", () => {
   ReactDOM.render(<WorkoutCard />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
+
+it("renders with fields", () => {
+  const { getByText } = render(
+    <WorkoutCard
+      cardTitle="title"
+      cardWhatDescription="what"
+      cardDoDescription="do"
+    />
+  );
+  expect(getByText("title")).toBeInTheDocument();
+  expect(getByText("what")).toBeInTheDocument();
+  expect(getByText("do")).toBeInTheDocument();
+});
