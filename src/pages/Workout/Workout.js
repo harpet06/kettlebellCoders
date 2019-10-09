@@ -28,7 +28,9 @@ class Workout extends Component {
   }
 
   handleSubmit(event) {
-    fetch(`https://pk3atpe009.execute-api.us-east-1.amazonaws.com/dev/workouts/${this.state.workoutDifficulty}/${this.state.workoutType}/${this.state.workoutNumber}`)
+    fetch(
+      `https://pk3atpe009.execute-api.us-east-1.amazonaws.com/dev/workouts/${this.state.workoutDifficulty}/${this.state.workoutType}/${this.state.workoutNumber}`
+    )
       .then(res => res.json())
       .then(data => {
         this.setState({ workouts: data, workoutGenerated: true });
@@ -58,7 +60,7 @@ class Workout extends Component {
             data={this.state}
           />
         ) : (
-          <WorkoutCardCollection workoutCards={workoutCards} s />
+          <WorkoutCardCollection workoutCards={workoutCards} />
         )}
       </div>
     );
