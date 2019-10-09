@@ -9,7 +9,7 @@ class Workout extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      workouts: workoutsData,
+      workouts: [],
       workoutType: "kettlebell",
       workoutDifficulty: "beginner",
       workoutNumber: 1,
@@ -29,9 +29,13 @@ class Workout extends Component {
   }
 
   handleSubmit(event) {
-    this.setState({
-      workoutGenerated: true
-    });
+    fetch("https://pbvqwoee56.execute-api.us-east-1.amazonaws.com/dev/workouts")
+      .then(res => res.json())
+      .then(data => {
+        this.setState({ workouts: data, workoutGenerated: true });
+      })
+      .catch(console.log);
+
     event.preventDefault();
   }
 
@@ -39,12 +43,31 @@ class Workout extends Component {
     const workoutCards = this.state.workouts.map(exercise => (
       <WorkoutCard
         key={exercise.id}
-        cardTitle={exercise.cardTitle}
-        cardWhatDescription={exercise.cardWhatDescription}
-        cardDoDescription={exercise.cardDoDescription}
-        cardImage={exercise.cardImage}
+        cardTitle={exercise.title}
+        cardWhatDescription={exercise.whatDescription}
+        cardDoDescription={exercise.doDescription}
+        cardImage={exercise.image}
       />
     ));
+
+    const filterWorkoutTypes = workoutType => {
+      return "type";
+    };
+
+    const filterWorkoutDifficulty = workoutDifficulty => {
+      return "difficult";
+    };
+
+    const filterWorkoutNumber = workoutNumber => {
+      return "number";
+    };
+
+    const finalWorkoutCards = workoutCards => {
+      return workoutCards
+        .filterWorkoutTypes(this.state.workoutType)
+        .filterWorkoutDifficulty(this.state.workoutDifficulty)
+        .filterWorkoutNumber(this.state.workoutNumber);
+    };
 
     return (
       <div>

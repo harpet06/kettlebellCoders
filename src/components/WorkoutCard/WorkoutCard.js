@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 
 function WorkoutCard(props) {
   return (
-    <Card style={{ width: "22rem", marginBottom:"0.5rem" }} border="secondary">
+    <Card style={{ width: "22rem", marginBottom: "0.5rem" }} border="secondary">
       <Card.Header>
         <Card.Title>{props.cardTitle}</Card.Title>
       </Card.Header>
