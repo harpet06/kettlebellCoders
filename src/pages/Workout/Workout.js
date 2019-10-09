@@ -3,7 +3,6 @@ import { Component } from "react";
 import WorkoutCardCollection from "../../components/WorkoutCardCollection/WorkoutCardCollection";
 import WorkoutCard from "../../components/WorkoutCard/WorkoutCard";
 import WorkoutForm from "../../components/WorkoutForm/WorkoutForm";
-import workoutsData from "../../services/workouts";
 
 class Workout extends Component {
   constructor(props) {
@@ -29,13 +28,12 @@ class Workout extends Component {
   }
 
   handleSubmit(event) {
-    fetch("https://pbvqwoee56.execute-api.us-east-1.amazonaws.com/dev/workouts")
+    fetch(`https://pk3atpe009.execute-api.us-east-1.amazonaws.com/dev/workouts/${this.state.workoutDifficulty}/${this.state.workoutType}/${this.state.workoutNumber}`)
       .then(res => res.json())
       .then(data => {
         this.setState({ workouts: data, workoutGenerated: true });
       })
       .catch(console.log);
-
     event.preventDefault();
   }
 
@@ -44,30 +42,11 @@ class Workout extends Component {
       <WorkoutCard
         key={exercise.id}
         cardTitle={exercise.title}
-        cardWhatDescription={exercise.whatDescription}
-        cardDoDescription={exercise.doDescription}
+        cardWhatDescription={exercise.whatdescription}
+        cardDoDescription={exercise.dodescription}
         cardImage={exercise.image}
       />
     ));
-
-    const filterWorkoutTypes = workoutType => {
-      return "type";
-    };
-
-    const filterWorkoutDifficulty = workoutDifficulty => {
-      return "difficult";
-    };
-
-    const filterWorkoutNumber = workoutNumber => {
-      return "number";
-    };
-
-    const finalWorkoutCards = workoutCards => {
-      return workoutCards
-        .filterWorkoutTypes(this.state.workoutType)
-        .filterWorkoutDifficulty(this.state.workoutDifficulty)
-        .filterWorkoutNumber(this.state.workoutNumber);
-    };
 
     return (
       <div>
@@ -79,7 +58,7 @@ class Workout extends Component {
             data={this.state}
           />
         ) : (
-          <WorkoutCardCollection workoutCards={workoutCards} />
+          <WorkoutCardCollection workoutCards={workoutCards} s />
         )}
       </div>
     );
