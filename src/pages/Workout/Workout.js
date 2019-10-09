@@ -3,13 +3,12 @@ import { Component } from "react";
 import WorkoutCardCollection from "../../components/WorkoutCardCollection/WorkoutCardCollection";
 import WorkoutCard from "../../components/WorkoutCard/WorkoutCard";
 import WorkoutForm from "../../components/WorkoutForm/WorkoutForm";
-import workoutsData from "../../services/workouts";
 
 class Workout extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      workouts: workoutsData,
+      workouts: [],
       workoutType: "kettlebell",
       workoutDifficulty: "beginner",
       workoutNumber: 1,
@@ -29,9 +28,14 @@ class Workout extends Component {
   }
 
   handleSubmit(event) {
-    this.setState({
-      workoutGenerated: true
-    });
+    fetch(
+      `https://pk3atpe009.execute-api.us-east-1.amazonaws.com/dev/workouts/${this.state.workoutDifficulty}/${this.state.workoutType}/${this.state.workoutNumber}`
+    )
+      .then(res => res.json())
+      .then(data => {
+        this.setState({ workouts: data, workoutGenerated: true });
+      })
+      .catch(console.log);
     event.preventDefault();
   }
 
@@ -39,10 +43,10 @@ class Workout extends Component {
     const workoutCards = this.state.workouts.map(exercise => (
       <WorkoutCard
         key={exercise.id}
-        cardTitle={exercise.cardTitle}
-        cardWhatDescription={exercise.cardWhatDescription}
-        cardDoDescription={exercise.cardDoDescription}
-        cardImage={exercise.cardImage}
+        cardTitle={exercise.title}
+        cardWhatDescription={exercise.whatdescription}
+        cardDoDescription={exercise.dodescription}
+        cardImage={exercise.image}
       />
     ));
 
