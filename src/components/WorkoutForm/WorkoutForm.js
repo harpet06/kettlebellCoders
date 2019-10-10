@@ -17,6 +17,7 @@ function WorkoutForm(props) {
         marginBottom: "0.5rem"
       }}
       onSubmit={props.onSubmit}
+      data-testid="workoutForm"
     > <h3>Generate your workout!</h3>
       <Form.Group controlId="workoutType">
         <Form.Label>Select your workout type</Form.Label>
