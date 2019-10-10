@@ -1,7 +1,7 @@
 import React from "react";
 import { Component } from "react";
-import StyledButton from "../../components/StyledButton/StyledButton";
 import Jumbotron from "../../components/Jumbotron/Jumbotron";
+import ImageRoulette from "../../components/ImageRoulette/ImageRoulette";
 
 class Home extends Component {
   constructor() {
@@ -20,13 +20,24 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
-        <br />
-        <Jumbotron title={this.state.title} body={this.state.body} />
-        <StyledButton
+      <div
+        style={{
+          height: "100%"
+        }}
+      >
+        <Jumbotron
+          title={this.state.title}
+          body={this.state.body}
           href={this.state.buttonLink}
           buttonText={this.state.buttonText}
-        ></StyledButton>
+        />
+        <ImageRoulette />
+        <div
+          style={{
+            height: "200px",
+            backgroundColor: "#e9ecef"
+          }}
+        />
       </div>
     );
   }
