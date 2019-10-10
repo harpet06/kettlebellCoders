@@ -40,15 +40,17 @@ class Workout extends Component {
   }
 
   render() {
-    const workoutCards = this.state.workouts.map(exercise => (
+    let workoutCards = this.state.workouts.map(exercise => (
       <WorkoutCard
         key={exercise.id}
         cardTitle={exercise.title}
         cardWhatDescription={exercise.whatdescription}
         cardDoDescription={exercise.dodescription}
-        cardImage={exercise.image}
+        cardImage={exercise.workimage}
       />
     ));
+
+     workoutCards.sort(() => Math.random() - 0.5); 
 
     return (
       <div>
