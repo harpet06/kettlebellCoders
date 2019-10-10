@@ -54,7 +54,7 @@ class Workout extends Component {
 
     return (
       <div>
-        <h1> Workout page</h1>
+        <br />
         {!this.state.workoutGenerated ? (
           <WorkoutForm
             onSubmit={this.handleSubmit}
@@ -64,6 +64,7 @@ class Workout extends Component {
         ) : (
           <WorkoutCardCollection workoutCards={workoutCards} />
         )}
+        <br />
       </div>
     );
   }

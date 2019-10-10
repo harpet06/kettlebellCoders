@@ -8,7 +8,7 @@ class Home extends Component {
     super();
     this.state = {
       title: "Welcome to kettlebellCoders",
-      body: "Looking to get fit and learn to code? Look now further george",
+      body: "Looking to get fit and learn to code? Look no further",
       buttonLink: "workout",
       buttonText: "Take me to the gym"
     };
