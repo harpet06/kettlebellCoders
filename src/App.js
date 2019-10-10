@@ -9,8 +9,10 @@ function App() {
   return (
     <div className="App">
       <Header headerTitle="kettlebellCoders" logo={logo} expand="lg"/>
-      <Main />
+      <Main/>
+      <footer>
       <Header fixed="bottom" />
+      </footer>
     </div>
   );
 }
