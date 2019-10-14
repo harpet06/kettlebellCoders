@@ -1,5 +1,5 @@
 it("we can navigate the website", () => {
-  cy.visit("http://localhost:3000/workout")
+  cy.visit("/workout")
     .get("#workoutType")
     .select("Both")
     .should("have.value", "both")
