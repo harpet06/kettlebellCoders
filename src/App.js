@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <Header headerTitle="kettlebellCoders" logo={logo} expand="lg"/>
       <Main/>
-      <footer>
+      <footer style={{paddingTop: "65px"}}>
       <Header fixed="bottom" />
       </footer>
     </div>

@@ -64,7 +64,7 @@ function WorkoutForm(props) {
         </Form.Control>
       </Form.Group>
       <Button variant="primary" type="submit">
-        Submit
+        {props.buttonText}
       </Button>
     </Form>
   );
