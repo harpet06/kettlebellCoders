@@ -6,6 +6,7 @@ function StyledButton(props) {
     <Button
       variant="primary"
       href={props.href}
+      onClick={props.onClick}
       style={{
         alignItems: "center",
         justifyContent: "center",
@@ -13,8 +14,7 @@ function StyledButton(props) {
         height: "100%",
         maxWidth: "300px",
         marginBottom: "-40px"
-      }}
-    >
+      }}>
       {props.buttonText}
     </Button>
   );

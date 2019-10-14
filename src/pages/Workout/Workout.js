@@ -3,6 +3,7 @@ import { Component } from "react";
 import WorkoutCardCollection from "../../components/WorkoutCardCollection/WorkoutCardCollection";
 import WorkoutCard from "../../components/WorkoutCard/WorkoutCard";
 import WorkoutForm from "../../components/WorkoutForm/WorkoutForm";
+import StyledButton from "../../components/StyledButton/StyledButton";
 
 class Workout extends Component {
   constructor(props) {
@@ -12,10 +13,12 @@ class Workout extends Component {
       workoutType: "kettlebell",
       workoutDifficulty: "beginner",
       workoutNumber: 1,
-      workoutGenerated: false
+      workoutGenerated: false,
+      workoutLoading: "Submit"
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -28,6 +31,7 @@ class Workout extends Component {
   }
 
   handleSubmit(event) {
+    this.setState({ workoutLoading: "Loading..." });
     fetch(
       `https://pk3atpe009.execute-api.us-east-1.amazonaws.com/dev/workouts/${this.state.workoutDifficulty}/${this.state.workoutType}/${this.state.workoutNumber}`
     )
@@ -36,6 +40,11 @@ class Workout extends Component {
         this.setState({ workouts: data, workoutGenerated: true });
       })
       .catch(console.log);
+    event.preventDefault();
+  }
+
+  handleClick(event) {
+    this.setState({ workoutGenerated: false, workoutLoading: "Submit" });
     event.preventDefault();
   }
 
@@ -50,7 +59,7 @@ class Workout extends Component {
       />
     ));
 
-     workoutCards.sort(() => Math.random() - 0.5); 
+    workoutCards.sort(() => Math.random() - 0.5);
 
     return (
       <div>
@@ -59,10 +68,17 @@ class Workout extends Component {
           <WorkoutForm
             onSubmit={this.handleSubmit}
             handleChange={this.handleChange}
-            data={this.state}
+            data={this.state.workouts}
+            buttonText={this.state.workoutLoading}
           />
         ) : (
-          <WorkoutCardCollection workoutCards={workoutCards} />
+          <div>
+            <WorkoutCardCollection workoutCards={workoutCards} />
+            <StyledButton
+              buttonText="Generate another workout"
+              onClick={this.handleClick}
+            />
+          </div>
         )}
         <br />
       </div>
