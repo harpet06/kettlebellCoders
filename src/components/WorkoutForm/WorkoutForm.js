@@ -26,6 +26,7 @@ function WorkoutForm(props) {
           name="workoutType"
           value={props.data.workoutType}
           onChange={props.handleChange}
+          data-testid="workoutType"
         >
           <option value="kettlebell">Kettlebell</option>
           <option value="coding">Coding</option>
@@ -39,6 +40,7 @@ function WorkoutForm(props) {
           name="workoutDifficulty"
           value={props.data.workoutDifficulty}
           onChange={props.handleChange}
+          data-testid="workoutDifficulty"
         >
           <option value="beginner">Beginner</option>
           <option value="intermediate">Intermediate</option>
@@ -52,6 +54,7 @@ function WorkoutForm(props) {
           name="workoutNumber"
           value={props.data.workoutNumber}
           onChange={props.handleChange}
+          data-testid="workoutNumber"
         >
           <option value="1">1</option>
           <option value="2">2</option>

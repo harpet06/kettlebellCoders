@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { render, fireEvent } from "@testing-library/react";
+import { render, fireEvent, getByDisplayValue } from "@testing-library/react";
 import WorkoutForm from "./WorkoutForm";
+
 
 const data = {
   workoutType: "kettlebell",
@@ -26,4 +27,13 @@ it("submits", () => {
   );
   fireEvent.submit(getByTestId("workoutForm"));
   expect(onSubmit).toHaveBeenCalled();
+});
+
+it("should display value in selection inputs", () => {
+  const { getByDisplayValue } = render(
+    <WorkoutForm data={data} handleChange={handleChange} />
+  );
+  expect(getByDisplayValue("Kettlebell")).toBeInTheDocument();
+  expect(getByDisplayValue("Beginner")).toBeInTheDocument();
+  expect(getByDisplayValue("2")).toBeInTheDocument();
 });
