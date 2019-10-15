@@ -10,7 +10,7 @@ class Contact extends Component {
   }
 
   componentDidMount() {
-    console.log("contact page");
+    console.log("contact page mark 2");
   }
 
   render() {
