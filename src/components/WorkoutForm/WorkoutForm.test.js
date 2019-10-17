@@ -21,7 +21,7 @@ it("renders without crashing", () => {
   ReactDOM.unmountComponentAtNode(div);
 });
 
-it("submits", () => {
+it("submits the form", () => {
   const { getByTestId } = render(
     <WorkoutForm data={data} handleChange={handleChange} onSubmit={onSubmit} />
   );
