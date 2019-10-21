@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 function StyledButton(props) {
   return (
     <Button
-      variant="primary"
+      variant="secondary"
       href={props.href}
       onClick={props.onClick}
       style={{
