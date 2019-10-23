@@ -19,10 +19,10 @@ function Jumbotron(props) {
     <BootstrapJumbotron
       style={{
         marginBottom: "0px",
-        backgroundImage:
-          `url(${props.backgroundImage})`,
-          backgroundSize: 'cover',
-          backgroundRepeat: 'repeat-x'
+        // backgroundImage:
+        //   `url(${props.backgroundImage})`,
+        //   backgroundSize: 'cover',
+        //   backgroundRepeat: 'repeat-x'
       }}
     >
       <h1 style={h3TextStyling}>{props.title}</h1>

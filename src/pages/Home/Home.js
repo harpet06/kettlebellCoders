@@ -11,7 +11,8 @@ class Home extends Component {
       body: "Looking to get fit and learn to code? Look no further",
       buttonLink: "workout",
       buttonText: "Take me to the gym",
-      jumboImage: "https://kettlebell-coders-images.s3-eu-west-1.amazonaws.com/hero-background.jpg"
+      jumboImage:
+        "https://kettlebell-coders-images.s3-eu-west-1.amazonaws.com/bg/bg-venice.jpeg"
     };
   }
 
@@ -36,7 +37,7 @@ class Home extends Component {
         <ImageRoulette />
         <div
           style={{
-            height: "200px",
+            height: "20px",
             backgroundColor: "#e9ecef"
           }}
         />

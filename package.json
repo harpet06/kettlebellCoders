@@ -16,7 +16,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "deploy": "aws s3 sync build/ s3://kettlebell-coders-app --acl public-read",
-    "test": "react-scripts test",
+    "unit": "react-scripts test --detectOpenHandles",
+    "test": "react-scripts test --watchAll=false && cypress run",
     "eject": "react-scripts eject",
     "cy:open": "cypress open",
     "cy:run": "cypress run"
