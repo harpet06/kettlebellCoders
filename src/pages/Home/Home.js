@@ -20,16 +20,13 @@ class Home extends Component {
 
   render() {
     return (
-      <div
-        style={{
-          height: "100%"
-        }}
-      >
+      <div>
         <Jumbotron
           title={this.state.title}
           body={this.state.body}
           href={this.state.buttonLink}
           buttonText={this.state.buttonText}
+          buttonMarginBottom = "-40px"
         />
         <ImageRoulette />
         <div

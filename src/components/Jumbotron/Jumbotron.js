@@ -11,7 +11,7 @@ function Jumbotron(props) {
       <p>{props.body}</p>
       <p>
         {props.buttonText ? (
-          <StyledButton href={props.href} buttonText={props.buttonText} />
+          <StyledButton href={props.href} buttonText={props.buttonText} buttonMarginBottom={props.buttonMarginBottom} />
         ) : null}
       </p>
     </BootstrapJumbotron>

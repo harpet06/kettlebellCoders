@@ -77,6 +77,7 @@ class Workout extends Component {
             <StyledButton
               buttonText="Generate another workout"
               onClick={this.handleClick}
+              buttonMarginBottom="40px"
             />
           </div>
         )}
