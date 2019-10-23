@@ -13,7 +13,7 @@ function StyledButton(props) {
         width: "90%",
         height: "100%",
         maxWidth: "300px",
-        marginBottom: "-40px"
+        marginBottom: "40px"
       }}>
       {props.buttonText}
     </Button>

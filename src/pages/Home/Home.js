@@ -11,7 +11,6 @@ class Home extends Component {
       body: "Looking to get fit and learn to code? Look no further",
       buttonLink: "workout",
       buttonText: "Take me to the gym",
-      jumboImage: "https://kettlebell-coders-images.s3-eu-west-1.amazonaws.com/hero-background.jpg"
     };
   }
 
@@ -31,7 +30,6 @@ class Home extends Component {
           body={this.state.body}
           href={this.state.buttonLink}
           buttonText={this.state.buttonText}
-          backgroundImage={this.state.jumboImage}
         />
         <ImageRoulette />
         <div
